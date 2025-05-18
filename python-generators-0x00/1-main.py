@@ -1,21 +1,11 @@
-#!/usr/bin/python3
 """
-Test script for batch processing (Task 2)
+Test script for batch processing 
 """
 
 import sys
-from 1_batch_processing import batch_processing
+processing = __import__('1-batch_processing')
 
-def main():
-    try:
-        # Process in batches of 50 as per example
-        for user in batch_processing(50):
-            print(user)
-            print()  # Empty line between users
-            
-    except BrokenPipeError:
-        # Handle pipe errors gracefully
-        sys.stderr.close()
-
-if __name__ == "__main__":
-    main()
+try:
+    processing.batch_processing(10)
+except BrokenPipeError:
+    sys.stderr.close()
