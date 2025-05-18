@@ -1,15 +1,13 @@
-#!/usr/bin/python3
+
 """
-Test script for user streaming (Task 1)
+Test script for user streaming
 """
 
 from itertools import islice
-from 0_stream_users import stream_users
+stream_users = __import__('0-stream_users')
 
-def main():
-    # Print first 6 users as shown in example
-    for user in islice(stream_users(), 6):
-        print(user)
+users = stream_users.stream_users()
 
-if __name__ == "__main__":
-    main()
+
+for user in islice(users,6):
+  print(user)
